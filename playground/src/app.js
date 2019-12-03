@@ -32,6 +32,14 @@ function start() {
   Navigation.events().registerAppLaunchedListener(async () => {
     setDefaultOptions();
 
+    // NOTE: Needs to be set via setDefaultOptions method, due to this issue:
+    // https://github.com/wix/react-native-navigation/issues/5679
+    Navigation.setDefaultOptions({
+      bottomTabs: {
+        currentTabIndex: 2,
+      }
+    })
+
     Navigation.setRoot({
       root: {
         bottomTabs: {
